@@ -11,6 +11,132 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>pH-TUBE</h1>
+    <header class="">
+        <nav class="w-11/12 mx-auto py-4 border-b">
+            <div class="flex justify-between navbar bg-base-100 items-center">
+                <div class="">
+                  <img src="./images/Logo.png" alt="">
+                </div>
+                <label class="input input-bordered cursor-pointer border-gray-400 flex items-center gap-2">
+                    <input type="text" class="grow" placeholder="Search" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      class="h-4 w-4 opacity-70">
+                      <path
+                        fill-rule="evenodd"
+                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </label>
+                <div class="dropdown dropdown-end">
+                    <button class="btn">SORT</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <nav class="w-11/12 mx-auto text-center py-4 space-x-4 btn-container">
+        <!-- <button class="btn">Music</button>
+        <button class="btn">Comedy</button>
+        <button class="btn">Drawing</button> -->
+    </nav>
+
+    <main>
+        <section class="w-11/12 mx-auto video-container grid grid-cols-4 gap-6">
+            <!-- <div class="">
+                <div class="w-[200px] h-[180px]">
+                    <img class="w-full" src="" alt="">
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="logo"></div>
+                    <div class="">
+                        <h2>Building a Winning UX Strategy Using the Kano Model</h2>
+                        <div class="flex items-center">
+                            <p>Awlad Hossain</p>
+                            <div class="varified"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                                <circle cx="24" cy="24" r="20" fill="#4dd0e1"></circle><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659l-6.083-6.084c-0.879-0.878-0.879-2.303,0-3.182 c0.878-0.879,2.304-0.879,3.182,0l6.083,6.084c0.879,0.878,0.879,2.303,0,3.182C23.643,30.47,23.067,30.69,22.491,30.69z"></path><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659c-0.879-0.878-0.879-2.303,0-3.182l9.539-9.539 c0.878-0.879,2.304-0.879,3.182,0c0.879,0.878,0.879,2.303,0,3.182l-9.539,9.539C23.643,30.47,23.067,30.69,22.491,30.69z"></path>
+                                </svg></div>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="w-[200px] h-[180px]">
+                    <img class="w-full" src="" alt="">
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="logo"></div>
+                    <div class="">
+                        <h2>Building a Winning UX Strategy Using the Kano Model</h2>
+                        <div class="flex items-center">
+                            <p>Awlad Hossain</p>
+                            <div class="varified"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                                <circle cx="24" cy="24" r="20" fill="#4dd0e1"></circle><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659l-6.083-6.084c-0.879-0.878-0.879-2.303,0-3.182 c0.878-0.879,2.304-0.879,3.182,0l6.083,6.084c0.879,0.878,0.879,2.303,0,3.182C23.643,30.47,23.067,30.69,22.491,30.69z"></path><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659c-0.879-0.878-0.879-2.303,0-3.182l9.539-9.539 c0.878-0.879,2.304-0.879,3.182,0c0.879,0.878,0.879,2.303,0,3.182l-9.539,9.539C23.643,30.47,23.067,30.69,22.491,30.69z"></path>
+                                </svg></div>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="w-[200px] h-[180px]">
+                    <img class="w-full" src="" alt="">
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="logo"></div>
+                    <div class="">
+                        <h2>Building a Winning UX Strategy Using the Kano Model</h2>
+                        <div class="flex items-center">
+                            <p>Awlad Hossain</p>
+                            <div class="varified"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                                <circle cx="24" cy="24" r="20" fill="#4dd0e1"></circle><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659l-6.083-6.084c-0.879-0.878-0.879-2.303,0-3.182 c0.878-0.879,2.304-0.879,3.182,0l6.083,6.084c0.879,0.878,0.879,2.303,0,3.182C23.643,30.47,23.067,30.69,22.491,30.69z"></path><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659c-0.879-0.878-0.879-2.303,0-3.182l9.539-9.539 c0.878-0.879,2.304-0.879,3.182,0c0.879,0.878,0.879,2.303,0,3.182l-9.539,9.539C23.643,30.47,23.067,30.69,22.491,30.69z"></path>
+                                </svg></div>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="w-[200px] h-[180px]">
+                    <img class="w-full" src="" alt="">
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="logo"></div>
+                    <div class="">
+                        <h2>Building a Winning UX Strategy Using the Kano Model</h2>
+                        <div class="flex items-center">
+                            <p>Awlad Hossain</p>
+                            <div class="varified"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                                <circle cx="24" cy="24" r="20" fill="#4dd0e1"></circle><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659l-6.083-6.084c-0.879-0.878-0.879-2.303,0-3.182 c0.878-0.879,2.304-0.879,3.182,0l6.083,6.084c0.879,0.878,0.879,2.303,0,3.182C23.643,30.47,23.067,30.69,22.491,30.69z"></path><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659c-0.879-0.878-0.879-2.303,0-3.182l9.539-9.539 c0.878-0.879,2.304-0.879,3.182,0c0.879,0.878,0.879,2.303,0,3.182l-9.539,9.539C23.643,30.47,23.067,30.69,22.491,30.69z"></path>
+                                </svg></div>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="w-[200px] h-[180px]">
+                    <img class="w-full" src="" alt="">
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="logo"></div>
+                    <div class="">
+                        <h2>Building a Winning UX Strategy Using the Kano Model</h2>
+                        <div class="flex items-center">
+                            <p>Awlad Hossain</p>
+                            <div class="varified"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                                <circle cx="24" cy="24" r="20" fill="#4dd0e1"></circle><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659l-6.083-6.084c-0.879-0.878-0.879-2.303,0-3.182 c0.878-0.879,2.304-0.879,3.182,0l6.083,6.084c0.879,0.878,0.879,2.303,0,3.182C23.643,30.47,23.067,30.69,22.491,30.69z"></path><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659c-0.879-0.878-0.879-2.303,0-3.182l9.539-9.539 c0.878-0.879,2.304-0.879,3.182,0c0.879,0.878,0.879,2.303,0,3.182l-9.539,9.539C23.643,30.47,23.067,30.69,22.491,30.69z"></path>
+                                </svg></div>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
