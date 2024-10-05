@@ -1,6 +1,4 @@
 
-
-
 // Buttons Fetch Data
 const fetchButtons = () => {
     fetch("https://openapi.programming-hero.com/api/phero-tube/categories")
@@ -10,10 +8,17 @@ const fetchButtons = () => {
 
 // Display Buttons
 const displayButtons = (buttons) => {
+
     const btnContainer = document.querySelector(".btn-container")
+    
     buttons.forEach(btn => {
+        // console.log(btn.category_id)
         const button = document.createElement("button")
-        button.classList = "btn"
+        button.onclick = () => {
+            loadCategoriVideos(btn.category_id)
+        }
+        button.classList = "btn btn-category"
+        button.id = btn.category_id
         button.innerText = btn.category
         btnContainer.append(button)
     });
@@ -25,7 +30,7 @@ fetchButtons()
 const fetchVideos = () => {
     fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
     .then(res => res.json())
-    .then(data => displayVideos(data))
+    .then(data => displayVideos(data.videos))
 }
 
 // Calculate Time
@@ -36,19 +41,30 @@ const calculateTime = (time) =>{
     const minute = parseInt(remainingSecond / 60)
     // const second = minute % 60;
     // const second 
-    return (`${hour} hour ${minute} minute ago`)
+    return (`${hour} hours ${minute} minutes ago`)
 };
 
-{/*  */}
 const displayVideos = (videos) => {
     const videoContainer = document.querySelector(".video-container")
-    
-    videos.videos.forEach(video => {
-        console.log(video)
+    resetState()
+    if(videos.length == 0){
+        videoContainer.classList.remove("grid")
+        videoContainer.innerHTML = `
+            <div class="flex flex-col justify-center items-center gap-4 mt-6">
+                <div class=""><img class="mx-auto" src="../images/Icon.png"/></div>
+                <h1 class="text-2xl font-semibold text-black">Oops!! Sorry There is no content here</h1>
+            </div>
+        `;
+        return
+    }else{
+        videoContainer.classList.add("grid")
+    }
+    videos.forEach(video => {
+        // console.log(video)
         // calculateTime(video.others.posted_date)
         // console.log()
         const divElement = document.createElement("div")
-        divElement.classList = "w-[220px], my-6"
+        divElement.classList = "w-[220px], my-2"
         divElement.innerHTML = `
         <div class="w-[280px] h-[180px] object-fit relative">
             <img class="absolute w-full h-full" src=${video.thumbnail} alt="">
@@ -67,14 +83,43 @@ const displayVideos = (videos) => {
                     ${video.authors[0].verified == true ? `<span class="varified"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                     <circle cx="24" cy="24" r="20" fill="#4dd0e1"></circle><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659l-6.083-6.084c-0.879-0.878-0.879-2.303,0-3.182 c0.878-0.879,2.304-0.879,3.182,0l6.083,6.084c0.879,0.878,0.879,2.303,0,3.182C23.643,30.47,23.067,30.69,22.491,30.69z"></path><path fill="#fff" d="M22.491,30.69c-0.576,0-1.152-0.22-1.591-0.659c-0.879-0.878-0.879-2.303,0-3.182l9.539-9.539 c0.878-0.879,2.304-0.879,3.182,0c0.879,0.878,0.879,2.303,0,3.182l-9.539,9.539C23.643,30.47,23.067,30.69,22.491,30.69z"></path>
                     </svg></span>
-                </span>` : ""}
-                    
-                
+
+                    </span>` : ""}
             </div>
             <p class="text-gray-400 text-sm">${video.others.views} views</p>
         </div>
         `
         videoContainer.appendChild(divElement)
+
     })
 }
 fetchVideos()
+
+function resetState(){
+    const videoContainer = document.querySelector(".video-container")
+    if(videoContainer.children){
+        videoContainer.innerHTML = "";
+    }
+    // console.log()
+}
+resetState()
+
+const loadCategoriVideos = (id) => {
+    // console.log(id)
+    
+    fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
+    .then(res => res.json())
+    .then(data => {
+        const buttons = document.querySelectorAll(".btn-category")
+        const activeBtn = document.getElementById(id)
+
+        for(const button of buttons){
+            button.classList.remove("active")
+        }
+        activeBtn.classList.add("active")
+
+        displayVideos(data.category)
+    })
+
+}
+
